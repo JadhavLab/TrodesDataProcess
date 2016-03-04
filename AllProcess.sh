@@ -25,6 +25,7 @@ echo “” > $debugtext
 # Initialize the variable that keeps track of whether this process is finished
 FINISHEDPROCESS=0
 
+############# PROCESSING REC FILES #############
 clear
 echo processing DIO ... ; sleep 0.5
 ${scriptpath}/TrodeProcess.sh $1 exportdio > ${debugtext} 2>/dev/null &
@@ -39,6 +40,7 @@ echo processing times ... ; sleep 0.5
 ${scriptpath}/TrodeProcess.sh $1 exporttime >> ${debugtext} 2>/dev/null &
 #${scriptpath}/TrodeProcess.sh $1 exportphy
 
+############# WAIT FOR FINISH OR USER INPUT TO QUIT #############
 X=initial
 while [ $FINISHEDPROCESS != "1" -a $X != "q" ] ;
 do
@@ -76,29 +78,33 @@ then
 
 fi
 
+############# EXECUTE MATLAB CREATION OF MATCLUST ANF FILTER FILES #############
+
 # Run matlab scripts to convert .dat spike files into matclust files and automagically
 # create the matclust files for all .X folders
 
-if [ -z $(echo $LD_LIBRARY_PATH | grep libmwlaunchermain.so) ] ;
-then
-	echo
-	echo ----------------------------------------------------------
-	echo Before we process matclust files and filter files, we need to put a matlab libary \
-		on path.
-	echo Searching ...
-	missinglibrary=$(find / -name libmwlaunchermain.so 2> /dev/null)
-	missinglibrary=$(echo $missinglibrary | head -n 1)
-	echo Adding library ...
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$missinglibrary
-	echo ----------------------------------------------------------
-	echo
-fi
+#if [ -z $(echo $LD_LIBRARY_PATH | grep libmwlaunchermain.so) ] ;
+#then
+#	echo
+#	echo ----------------------------------------------------------
+#	echo Before we process matclust files and filter files, we need to put a matlab libary \
+#		on path.
+#	echo Searching ...
+#	missinglibrary=$(find / -name libmwlaunchermain.so 2> /dev/null)
+#	missinglibrary=$(echo $missinglibrary | head -n 1)
+#	echo Adding library ...
+#	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$missinglibrary
+#	echo ----------------------------------------------------------
+#	echo
+#fi
 
 echo
 echo ----------------------------------------------------------
 currpath=$(pwd)
 cd $1
-"${scriptpath}"AutoProcessToFilterFramework
+MATLAB_COMMAND="path('${scriptpath}',path);cd('$1');pwd;AutoProcessToFilterFramework;"
+echo About to run $MATLAB_COMMAND in matlab
+matlab -nodisplay -nosplash -r $MATLAB_COMMAND
 cd $currpath
 
 else

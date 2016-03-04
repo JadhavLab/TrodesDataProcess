@@ -1,6 +1,9 @@
+clear; close all;
+try
 
 
 %% Process all .SPIKES folders in directory to generate matlab files
+
 spikefiles = subdir('*.spikes')
 currfolder = pwd;
 
@@ -21,3 +24,10 @@ cd(currfolder);
 
 %% Process all .LFP/.DIO/.TIME Folders to generate filter framework files
 
+%% Terminate
+catch ME
+	disp('Error occured while running automated matclust/filter code.');
+	
+end
+	
+exit
