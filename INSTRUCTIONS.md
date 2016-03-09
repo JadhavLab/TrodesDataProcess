@@ -1,5 +1,5 @@
 
-INSTALLATION INSTRUCTIONS
+### INSTALLATION INSTRUCTIONS
 -----------------------------
 1) type "which realpath" 
 ... if nothing comes up, its a quick download. As long as you have unix, do the following
@@ -11,7 +11,7 @@ INSTALLATION INSTRUCTIONS
 	e.g. "~/Code/Trodes"
 3) DONE!
 
-PURPOSE
+### PURPOSE
 -----------------------------
 This script suite has three different useful functions
 
@@ -40,7 +40,7 @@ Trode process applies to every .rec it finds in the entire nested folder structu
 
 Applies all export programs to all recfiles in the nested folder structure of X. Knocks out all of the extraction process once and for all, generating all the .dat files for all .rec files. This opens 4 processes that run in the background and handle each of the exports respectively. Once this process has begun, to terminate, type "q" and hit enter. The program proceeds to process matclust and filter files if it finishes processing all rec files. 
 
-OTHER FEATURES
+#### OTHER FEATURES
 ---------------------------------
 If you set an environmental variable SKIPPROCESSED to 1, it will skip rec files that have already been processed.
 	type "export SKIPPROCESSED=1", and then run the programs above as normal
