@@ -51,7 +51,7 @@ for f in $(ls $1); do
 	if [[ $f =~ .*\.rec$ ]] ; then
                 printf "Creating trodesconf for recFile: $f \n"
                 plainfile=$(echo $f | sed 's/.rec//g')
-		cp $2 $(pwd)/${plainfile}.trodesConf
+		cp $2 $(pwd)/${plainfile}.trodesconf
 	fi;
 
 done;

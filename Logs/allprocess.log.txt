@@ -1,0 +1,64 @@
+
+
+Found folder with rec files and processing...
+========
+About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportdio -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec -output DM4_20160119_feedback
+Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportdio.log.txt
+========
+
+exportdio: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.DIO
+
+exportdio: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.LFP
+
+exportdio: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.spikes
+
+exportdio: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.time
+
+
+
+Found folder with rec files and processing...
+========
+About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportLFP -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec -output DM4_20160119_feedback
+Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportLFP.log.txt
+========
+
+exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.DIO
+
+exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.LFP
+
+exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.spikes
+
+exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.time
+
+
+
+Found folder with rec files and processing...
+========
+About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportspikes -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec -output DM4_20160119_feedback
+Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportspikes.log.txt
+========
+
+exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.DIO
+
+exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.LFP
+
+exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.spikes
+
+exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.time
+
+
+
+Found folder with rec files and processing...
+========
+About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exporttime -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec -output DM4_20160119_feedback
+Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exporttime.log.txt
+========
+
+exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.DIO
+
+exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.LFP
+
+exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.spikes
+
+exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback.time
+

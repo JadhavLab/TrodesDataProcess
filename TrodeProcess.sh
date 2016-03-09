@@ -46,39 +46,84 @@ esac
 ORIGINAL_PATH=$(pwd);
 cd $1
 
+# Check if stop process flag has been thrown!
+if [[ $STOPALLPROCESS == "1" ]]
+then
+	break;
+fi
+
+if [[ $(ls $f ) =~ .*\.rec ]]; then
+	# This is directory that has recfiles!
+	echo
+	echo
+        echo Found folder $f with rec files and processing...
+	
+	# Now to concatonate the arguments to feed into the export function
+	recfilestring=""
+	commonstring=$(ls -1 *.rec | head -n 1)
+	# Create rec file argument string to pass to the export function, containing all rec files to process in order
+	for r in $(ls -tr *$3*.rec) # crawls over all rec files, oldest to newest
+	do
+		# Append to the rec file argument list
+		recfilestring="${recfilestring}-rec $(pwd)/$f$r "
+		# Here, calculating the common string pattern for all processed files, for naming output later
+		commonstring=$(printf "%s\n%s\n" "$r" "$commonstring" | sed -e 'N;s/^\(.*\).*\n\1.*$/\1/')
+	done;
+
+	#echo "DEBUG: $2: Processing RecFile argument list: $recfilestring"
+	echo ========
+	echo "About to run --> "$TRODESPIKE $recfilestring -output $commonstring"" 
+	echo Outputting to ${scriptpath}Logs/$2.log.txt
+	echo ========
+	$TRODESPIKE $recfilestring -output $commonstring 2>> ${scriptpath}Logs/$2.log 1>> ${scriptpath}Logs/$2.log &
+	echo
+fi
+
+# Now that we processed any recfiles potentially in this folder, attempt to descend into nested folders
+# and look for more
 for f in $(ls $1); do
 
 	if [[ $STOPALLPROCESS == "1" ]]
 	then
-		continue;
+		# If stopprocess flag is thrown, we should exit
+		break;
 	fi
 
-	# If it's a directory, recurse into the thingamajig
-	if [ -d $f ]; then
-                echo "$2: Recursing into $(pwd)/$f"
+	# If it's a directory, recurse into it
+	if [[ -d $f ]] ; then
+		
+		echo "$2: Recursing into $(pwd)/$f"
 		let levelsdeep=$levelsdeep+1
-                $SCRIPT $(pwd)/$f $2 $levelsdeep
+                $SCRIPT $(pwd)/$f $2 $levelsdeep 1>&1 | sed 's/^/    /'
                 let levelsdeep=$levelsdeep-1
+		echo 
 	fi
 
-	if [[ $f =~ .*\.rec$ ]] ; then
-
-		if [[ $SKIPPROCESSED = "1" ]] ;
-		then
-			if [[ -d $(echo $f | sed 's/.rec//')${procExt} ]] ;
-			then
-				echo Recfile $f already processed ... moving on ... 
-				continue;
-			fi
-		fi
-
-                echo "$2: Processing RecFile: $f"
-		echo About to run $TRODESPIKE
-                $TRODESPIKE -rec $f
-
-	fi;
+#	# This section for right now is not terribly useful ... will have to rework it for BashTrodes2.0
+#	if [[ $(ls $f) =~ .*\.rec$ ]] ; then
+#
+#		if [[ $SKIPPROCESSED = "1" ]] ;
+#		then
+#			if [[ -d $(echo $f | sed 's/.rec//')${procExt} ]] ;
+#			then
+#				echo Recfile $f already processed ... moving on ... 
+#				continue;
+#			fi
+#		fi
+#
+#	fi;
 
 done;
 
 # Return to the orignal directory
 cd $ORIGINAL_PATH
+
+# Potentially let a parent AllProcess program instance know we're done processing
+# If it's running stand-alone, this doesn't matter
+if [[ $levelsdeep = "0" ]]
+then
+	PROCESSESFINISHED=$(cat ${scriptpath}Logs/.processesfinished.log)
+	let PROCESSESFINISHED=$PROCESSESFINISHED+1;
+	echo $PROCESSESFINISHED > ${scriptpath}Logs/.processesfinished.log
+fi
+
