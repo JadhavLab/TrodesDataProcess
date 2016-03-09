@@ -21,7 +21,6 @@ clear
 echo
 echo
 echo Creating background processes to run exportdio, exportLFP, exportspikes, exporttimes, and exportphy in parallel on all recfiles in folder structure $1 with file filter $2 ...
-echo
 echo intializing PROCESSESFINISHED to $(cat ${scriptpath}Logs/.processesfinished.log) ...
 sleep 2
 
