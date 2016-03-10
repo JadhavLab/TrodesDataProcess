@@ -46,16 +46,16 @@ echo “” > $debugtext
 
 ############# CALL EXPORT PROCESSING CHILD PROGRAMS #############
 clear
-echo processing DIO  ... ; sleep 0.5
+echo initiating DIO  ... ; sleep 0.5
 ${scriptpath}/TrodeProcess.sh $1 exportdio $2 > ${debugtext} 2>/dev/null &
 clear
-echo processing LFP ... ; sleep 0.5
+echo initiating LFP ... ; sleep 0.5
 ${scriptpath}/TrodeProcess.sh $1 exportLFP $2 >> ${debugtext} 2>/dev/null &
 clear
-echo processing spikes ... ; sleep 0.5
+echo initiating spikes ... ; sleep 0.5
 ${scriptpath}/TrodeProcess.sh $1 exportspikes $2 >> ${debugtext} 2>/dev/null &
 clear
-echo processing times ... ; sleep 0.5
+echo initiating times ... ; sleep 0.5
 ${scriptpath}/TrodeProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
 #${scriptpath}/TrodeProcess.sh $1 exportphy
 

@@ -177,6 +177,24 @@ exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentE
     
     Found folder with rec files and processing...
     ========
+    About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportLFP -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback2.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback3.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback4.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback5.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback6.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback7.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback8.rec -output DM4_20160121_feedback
+    Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportLFP.log.txt
+    ========
+    
+    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.DIO
+    
+    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.LFP
+    
+    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.spikes
+    
+    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.time
+    
+
+exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160203
+    
+    
+    Found folder with rec files and processing...
+    ========
     About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exporttime -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec -output DM4_20160119_feedback
     Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exporttime.log.txt
     ========
@@ -193,24 +211,6 @@ exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentE
     
 
 exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120
-    
-    
-    Found folder with rec files and processing...
-    ========
-    About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportLFP -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback2.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback3.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback4.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback5.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback6.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback7.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback8.rec -output DM4_20160121_feedback
-    Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportLFP.log.txt
-    ========
-    
-    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.DIO
-    
-    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.LFP
-    
-    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.spikes
-    
-    exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.time
-    
-
-exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160203
     
     
     Found folder with rec files and processing...
@@ -233,24 +233,6 @@ exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentE
     
     Found folder with rec files and processing...
     ========
-    About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exporttime -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback2.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback3.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback4.rec -output DM4_20160120_feedback
-    Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exporttime.log.txt
-    ========
-    
-    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.DIO
-    
-    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.LFP
-    
-    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.spikes
-    
-    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.time
-    
-
-exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121
-    
-    
-    Found folder with rec files and processing...
-    ========
     About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportLFP -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160203/DM4_Feedback_Sleep1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160203/DM4_Feedback_LinearTrack1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160203/DM4_Feedback_LinearTrack1_1.rec -output DM4_Feedback_
     Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportLFP.log.txt
     ========
@@ -265,6 +247,24 @@ exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExp
     
 
 exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160204
+    
+    
+    Found folder with rec files and processing...
+    ========
+    About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exporttime -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback2.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback3.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback4.rec -output DM4_20160120_feedback
+    Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exporttime.log.txt
+    ========
+    
+    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.DIO
+    
+    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.LFP
+    
+    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.spikes
+    
+    exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160120/DM4_20160120_feedback.time
+    
+
+exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121
     
     
     Found folder with rec files and processing...
@@ -373,6 +373,8 @@ exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExp
     
 
 exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/DM4_20160121_1_direct
+
+exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/DM4_20160205
     
     
     Found folder with rec files and processing...
@@ -390,9 +392,7 @@ exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExpe
     exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160204/DM4_Feedback_.time
     
 
-
 exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160205
-exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/DM4_20160205
 
     
     
@@ -454,22 +454,3 @@ exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExp
 
 exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/DM4_20160205
 
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 92: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 92: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 92: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 92: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 92: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 92: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 93: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 93: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 93: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 93: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 93: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 93: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 94: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 94: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 94: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 94: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 95: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 95: kill: pts/3: arguments must be process or job IDs
-/home/ryoung/Scripts/BashTrodes/AllProcess.sh: line 95: kill: pts/3: arguments must be process or job IDs

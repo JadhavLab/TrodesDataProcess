@@ -139,4 +139,4 @@ catch ME
     save('BashTrodes_Matlab_ProcessingError');
 end
 	
-exit
+% exit
