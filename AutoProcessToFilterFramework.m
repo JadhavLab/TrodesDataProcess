@@ -25,7 +25,7 @@ for d = 1:numel(spikefiles)
 		destination = fileparts(spikefiles(d).name);
 		
 		% Processes the matclust files into the same .spikes folder
-        createAllMatclustFiles(spikefiles(d).name, destination);
+        createAllMatclustFiles;
 
     end
 end

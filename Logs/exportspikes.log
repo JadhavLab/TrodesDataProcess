@@ -1,108 +1,20 @@
+/Users/ss/Scripts/BashTrodes//TrodeProcess.sh: line 82: /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportspikes: No such file or directory
+Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
+Error: one or more argument flags is not supported. Use -h flag to print usage.
 Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
 Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%60%10%70%20%30%80%40%90%50%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%60%10%20%70%30%80%40%50%90%60%70%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%80%10%90%20%100%30%Done
-40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
+0%10%20%Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
 Exporting to spike waveform data...
 0%10%20%30%40%50%60%Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
 Exporting to spike waveform data...
-0%70%10%80%20%30%90%40%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
+0%70%10%80%20%90%30%100%
+Appending from file:  "/Volumes/Cerebellum/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
 Done
-0%50%10%20%60%30%70%40%50%80%60%70%90%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%100%20%Done
-30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
+0%10%20%30%40%50%60%40%70%50%80%60%70%90%100%Done
+80%Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
 Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
+0%90%100%
+Appending from file:  "/Volumes/Cerebellum/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
 Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%60%10%70%20%80%30%90%40%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%50%10%20%60%30%40%70%50%80%60%70%90%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%100%10%Done
-20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%70%80%10%20%90%30%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%40%20%Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%30%50%40%10%50%60%20%60%30%70%70%80%40%80%90%50%100%90%60%Done
-100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%70%20%30%80%40%90%50%60%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%70%10%80%20%90%30%100%Done
-40%50%60%70%80%90%100%Done
-Using the following workspace file:  "DM4_20160119_feedback1.trodesconf"
-Exporting to spike waveform data...
-0%10%20%30%40%50%60%70%80%90%100%
-Appending from file:  "/media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160119/DM4_20160119_feedback2.rec"
-Done
-0%10%20%30%40%50%60%70%80%90%100%Done
+0%10%20%30%10%40%50%60%70%80%90%100%Done
+20%30%40%50%60%70%80%
