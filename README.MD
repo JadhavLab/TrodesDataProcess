@@ -9,7 +9,8 @@
 		sudo port install realpath
 2) Enter the path to the folder containing your export functions (e.g. exportspikes, exportdio) in TrodesPath.txt
 	e.g. "~/Code/Trodes"
-3) DONE!
+3) For automated matclust and NeuroQuery file creation, have TrodesToMatlab and BashTrodes folders/subfolders in path
+4) DONE!
 
 ### PURPOSE
 -----------------------------
