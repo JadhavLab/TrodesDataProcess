@@ -101,7 +101,7 @@ fi
 
 # Run matlab scripts to convert .dat spike files into matclust files and automagically
 # create the matclust files for all .X folders
-if [[ $PROCESSESFINISHED == "4" ]]
+if [[ -z $PROCESSESFINISHED ]]
 then
 	echo Initiating final matlab processing ...
 	
