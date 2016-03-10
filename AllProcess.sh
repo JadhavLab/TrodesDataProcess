@@ -14,6 +14,20 @@ scriptpath=$(echo $SCRIPT | sed 's/\/[a-zA-Z0-9]*.sh$/\//')
 echo Script execution path detected: $scriptpath
 sleep 0.5
 
+# Path to export programs
+TrodesPath=$(cat ${scriptpath}/TrodesPath.txt);
+if [[ ! -d $TrodesPath ]]
+then
+	clear
+	echo ==================================
+	echo WARNING: Check your TrodesPath.txt
+	echo ...cannot find folder indicated ...
+	echo ... TrodesPath = $TrodesPath ...
+	echo ==================================
+	sleep 10
+	exit 1
+fi
+
 export STOPALLPROCESS=0 # Flag that tracks whether user has requested to halt processing
 echo "0" > ${scriptpath}Logs/.processesfinished.log # Set file that tracks how many of the children TrodeProcess parent background processes finished, really can't used environmental variables here! Because parent processes cannot get an exported copy of a variable from children. Hence, the file, which is hidden and inside the log folder.
 
@@ -92,7 +106,7 @@ then
 	echo ----------------------------------------------------------
 	currpath=$(pwd)
 	cd $1
-	MATLAB_COMMAND="path(genpath('${scriptpath}'),path);cd('$1');pwd;AutoProcessToFilterFramework;"
+	MATLAB_COMMAND="path(genpath('${scriptpath}'),path);cd('$1');pwd;MatclustAndFilter;"
 	echo About to run $MATLAB_COMMAND in matlab
 	matlab -nodisplay -nosplash -r $MATLAB_COMMAND
 	cd $currpath
