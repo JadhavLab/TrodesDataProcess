@@ -92,7 +92,7 @@ then
 	echo ----------------------------------------------------------
 	currpath=$(pwd)
 	cd $1
-	MATLAB_COMMAND="path('${scriptpath}',path);cd('$1');pwd;AutoProcessToFilterFramework;"
+	MATLAB_COMMAND="path(genpath('${scriptpath}'),path);cd('$1');pwd;AutoProcessToFilterFramework;"
 	echo About to run $MATLAB_COMMAND in matlab
 	matlab -nodisplay -nosplash -r $MATLAB_COMMAND
 	cd $currpath

@@ -9,7 +9,7 @@ function animalinfo = animaldef(animalname)
 			else
 				rootfolder = '/Volumes/mordorDATA/HP_8dayExpt/';
 			end
-		case {'jadhavlab','ryoung'}		% lab computer
+		case {'jadhavlab','ryoung','root'}		% lab computer
 			% particular lab computer must be rsynced such that its ~/Code
 			% and ~/Data folders matches Ryan's
             if exist('~/Data/Mordor/HP_8dayExpt/','dir')
@@ -27,7 +27,8 @@ function animalinfo = animaldef(animalname)
 switch animalname
     
     % Ripple Disruption and Hippocampal-prefrontal animals
-    
+    case 'DM4'
+        animalinfo = {'DM4', [rootfolder 'RippleInterruption_current/DM4_direct'],'DM4'};
     case 'sjc'
         animalinfo = {'sjc', [rootfolder 'RippleInterruption/sjc_direct/'], 'sjc'};
     case 'RE1'
@@ -78,6 +79,9 @@ switch animalname
         error(['Animal ',animalname, ' not defined.']);
 end
 
-assert(~isempty(dir(animalinfo{2})), 'Directory not found! Error.');
+if ~exist(animalinfo{2},'dir'),
+    warning('Directory not found! Creating...');
+    mkdir(animalinfo{2});
+end
 
 fprintf('Using animal info at %s \n', animalinfo{2});
