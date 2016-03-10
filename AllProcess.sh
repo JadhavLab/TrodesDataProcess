@@ -34,11 +34,12 @@ echo "0" > ${scriptpath}Logs/.processesfinished.log # Set file that tracks how m
 clear
 echo
 echo
-echo Creating background processes to run exportdio, exportLFP, exportspikes, exporttimes, and exportphy in parallel on all recfiles in folder structure $1 with file filter $2 ...
+echo This program will now create background processes to run exportdio, exportLFP, exportspikes, exporttimes, and exportphy in parallel on all recfiles in folder structure $1 with file filter $2 ...
 echo
-echo intializing PROCESSESFINISHED to $(cat ${scriptpath}Logs/.processesfinished.log) ...
-sleep 2
+read -p "Press enter to continue..."
 
+
+PROCESSESFINISHED=$(cat ${scriptpath}Logs/.processesfinished.log)
 debugtext=${scriptpath}Logs/allprocess.log.txt
 
 echo “” > $debugtext
@@ -60,18 +61,20 @@ ${scriptpath}/TrodeProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
 
 ############# WAIT FOR PROCESSES TO FINISH OR USER TO TERMINATE #############
 X=""
-while [[ ! $X = "q" ]] && [[ ! $PROCESSESFINISHED == "4" ]] ;
+PROCESSESFINISHED=$(ps -A | grep exportLFP | cut -d ' ' -f1,7)$(ps -A | grep exportspikes | cut -d ' ' -f1,7)$(ps -A | grep exportdio | cut -d ' ' -f1,7)$(ps -A | grep exporttime | cut -d ' ' -f1,7) # NEW METHOD
+while [[ ! $X = "q" ]] && [[ -n $PROCESSESFINISHED ]]
 do
 	clear
-	PROCESSESFINISHED=$(cat ${scriptpath}Logs/.processesfinished.log)
 	echo ==========
-	echo Current Background Master Processes Finished: $PROCESSESFINISHED
+	echo Current Background Master Processes: 
+	echo $PROCESSESFINISHED
 	echo "(i.e. number of export functions that completed running on all folders)"
 	echo ==========
 	echo
 	echo
 	echo "Type q to quit installation, or you can use a terminal by setting ''STOPALLPROCESS=1'' and ''export STOPALLPROCESS''."
 	read -t 5 -a X
+	PROCESSESFINISHED=$(ps -A | grep exportLFP | cut -d ' ' -f1,7)$(ps -A | grep exportspikes | cut -d ' ' -f1,7)$(ps -A | grep exportdio | cut -d ' ' -f1,7)$(ps -A | grep exporttime | cut -d ' ' -f1,7) # NEW METHOD
 done
 
 ############# TERMINATION (IF REQUESTED WHEN LOOP ABOVE EXITS) #############
@@ -86,10 +89,10 @@ then
 	# Destroy currently running processes
 	echo Destroying currently running Trode export programs ...
 	sleep 1
-	kill $(ps -A | grep exportLFP | cut -d ' ' -f1 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
-	kill $(ps -A | grep exportspikes | cut -d ' ' -f1 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
-	kill $(ps -A | grep exportdio | cut -d ' ' -f1 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
-	kill $(ps -A | grep exporttime | cut -d ' ' -f1 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
+	kill $(ps -A | grep exportLFP | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
+	kill $(ps -A | grep exportspikes | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
+	kill $(ps -A | grep exportdio | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
+	kill $(ps -A | grep exporttime | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
 
 	echo All export processes halted! Done.
 fi
