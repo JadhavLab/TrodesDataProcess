@@ -269,24 +269,6 @@ exporttime: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExp
     
     Found folder with rec files and processing...
     ========
-    About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportspikes -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback2.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback3.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback4.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback5.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback6.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback7.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback8.rec -output DM4_20160121_feedback
-    Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportspikes.log.txt
-    ========
-    
-    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.DIO
-    
-    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.LFP
-    
-    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.spikes
-    
-    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.time
-    
-
-exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160203
-    
-    
-    Found folder with rec files and processing...
-    ========
     About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportLFP -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160204/DM4_Feedback_Sleep1.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160204/DM4_Feedback_LinearTrack1.rec -output DM4_Feedback_
     Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportLFP.log.txt
     ========
@@ -301,6 +283,24 @@ exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentE
     
 
 exportLFP: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160205
+    
+    
+    Found folder with rec files and processing...
+    ========
+    About to run --> /home/ryoung/TrodeProjects/trodes_Ubuntu_12-3-2015/exportspikes -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback2.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback3.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback4.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback5.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback6.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback7.rec -rec /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback8.rec -output DM4_20160121_feedback
+    Outputting to /home/ryoung/Scripts/BashTrodes/Logs/exportspikes.log.txt
+    ========
+    
+    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.DIO
+    
+    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.LFP
+    
+    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.spikes
+    
+    exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160121/DM4_20160121_feedback.time
+    
+
+exportspikes: Recursing into /media/ryoung/Data/Mordor/RippleDisruption_currentExperiments/20160203
     
     
     Found folder with rec files and processing...

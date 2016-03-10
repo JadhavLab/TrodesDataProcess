@@ -52,7 +52,14 @@ for d = 1:numel(LFPfiles)
         filteredstring = regexp(LFPfiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
 
-        createFilterFrameworkLFPFiles(animalinfo{2}, animalinfo{3}, session);
+        if exist('createNQLFPFiles.m','file')
+            createNQLFPFiles(animalinfo{2}, animalinfo{3}, session);
+        elseif exist('createFilterFrameworkLFPFiles.m','file')
+            createFilterFrameworkLFPFiles(animalinfo{2}, animalinfo{3},...
+                session);
+        else
+            warning('createNQLFPFiles DNE ... TrodesToMatlab potentially not on path.');
+        end
 
     end
 end
@@ -75,7 +82,14 @@ for d = 1:numel(DIOfiles)
         filteredstring = regexp(DIOfiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
 
-        createFilterFrameworkDioFiles(animalinfo{2}, animalinfo{3}, session);
+        if exist('createNQDioFiles.m','file')
+            createNQDioFiles(animalinfo{2}, animalinfo{3}, session);
+        elseif exist('createNQDioFiles.m','file')
+            createFilterFrameworkDioFiles(animalinfo{2}, animalinfo{3}, ...
+                session);
+        else
+            warning('createNQDioFiles DNE ... TrodesToMatlab potentially not on path.');
+        end
 
     end
 end
@@ -97,9 +111,17 @@ for d = 1:numel(commentFiles)
         animalfilter = '(.*)(?<animal>[A-Z]{2,12}[0-9]{0,2})_(.*).trodeComments$';
         filteredstring = regexp(commentFiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
-
-        createFilterFrameworkTaskFile(animalinfo{2}, animalinfo{3}, session);
-        createFilterFrameworkTrialFiles(animalinfo{2},animalinfo{3},session);
+        
+        if exist('createNQTaskFile.m','file')
+            createNQTaskFile(animalinfo{2}, animalinfo{3}, session);
+        elseif exist('createFilterFrameworkTaskFile.m','file')
+            createFilterFrameworkTaskFile(animalinfo{2}, animalinfo{3},...
+                session);
+            createFilterFrameworkTrialFiles(animalinfo{2},animalinfo{3},...
+                session);
+        else
+            warning('createNQTaskFile DNE ... TrodesToMatlab potentially not on path.');
+        end
 
     end
 end
@@ -124,8 +146,15 @@ for d = 1:numel(videoTrackingFiles)
         filteredstring = regexp(videoTrackingFiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
 
-        createFilterFrameworkPosFiles(animalinfo{2}, animalinfo{3}, session);
-
+        if exist('createNQPosFiles.m','file')
+            createNQPosFiles(animalinfo{2}, animalinfo{3}, session);
+        elseif exist('createFilterFrameworkPosFiles.m','file')
+             createFilterFrameworkPosFiles(animalinfo{2}, animalinfo{3}, ...
+                 session);
+        else
+            warning('createNQPosFiles DNE ... TrodesToMatlab potentially not on path.');
+        end
+       
     end
 end
 else
