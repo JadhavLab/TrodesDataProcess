@@ -12,20 +12,20 @@ end
 
 %% Process all .SPIKES folders in directory to generate matlab files
 
-spikefiles = subdir('*.spikes_n*.dat')
+spikefiles = subdir('*.spikes');
 currfolder = pwd;
 
 fprintf('Found %d potential spike folders! ...\n',...
     numel(spikefiles));
 for d = 1:numel(spikefiles)
-    if ~spikefiles(d).isdir
+    if spikefiles(d).isdir
         fprintf('About to process %s matclust files ...\n',...
             spikefiles(d).name);
-		
-		destination = fileparts(spikefiles(d).name);
+		[where_to_proces, ~] = fileparts(spikefiles(d).name);
+		cd(where_to_proces);
 		
 		% Processes the matclust files into the same .spikes folder
-        createAllMatclustFiles;
+        %createAllMatclustFiles;
 
     end
 end
@@ -34,17 +34,16 @@ end
 cd(currfolder);
 	
 %% Process all .LFP/.DIO/.TIME Folders to generate filter framework files
-LFPfiles = subdir('*.LFP')
+LFPfiles = subdir('*.LFP');
 for d = 1:numel(LFPfiles)
     if LFPfiles(d).isdir
 
         fprintf('About to process %s into filter framework ...\n', ...
             LFPfiles(d).name);
-        cd(LFPfiles(d).folder);
+        [where_to_proces, ~] = fileparts(LFPfiles(d).name);
+		cd(where_to_proces);
 
-        filename = LFPfiles(d).name;
-
-        session = regexp(LFPfiles(d).name,'[1-9]?[0-9]{1}.mat$','name');
+        session = regexp(LFPfiles(d).name,'[1-9]?[0-9]{1}.LFP$','name');
         session = session(1:end-4);
 
         animal=filename(1:3);
