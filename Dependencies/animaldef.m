@@ -25,14 +25,10 @@ function animalinfo = animaldef(animalname)
 	end
 
 switch animalname
-    
-    % Behavior "pilot" animals
-    case ''
-        animalinfo = {'DM4', [rootfolder 'Misc//DM4_direct/'],'DM4'};
         
     % Single day animals
-    case 'SJ7'
-        animalinfo = {'SJ7', [rootfolder 'W-track_SingleDay/Efizz/SJ7_direct/'],'SJ7'};
+    case 'JS7'
+        animalinfo = {'JS7', [rootfolder 'W-track_SingleDay/Efizz/JS7_direct/'],'JS7'};
     case 'SJ6'
         animalinfo = {'SJ6', [rootfolder 'W-track_SingleDay/Efizz/SJ6_direct/'],'SJ6'};
     case 'SJ1'

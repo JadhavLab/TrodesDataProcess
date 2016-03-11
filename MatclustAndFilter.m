@@ -29,7 +29,7 @@ for d = 1:numel(spikefiles)
 		cd(where_to_proces);
 		
 		% Processes the matclust files into the same .spikes folder
-        createAllMatclustFiles;
+%         createAllMatclustFiles;
         
         catch ME
             disp('Error occured while running automated matclust/filter code.');
@@ -60,11 +60,12 @@ for d = 1:numel(LFPfiles)
         animalfilter = '(.*)(?<animal>[A-Z]{2,12}[0-9]{0,2})_(.*).LFP$';
         filteredstring = regexp(LFPfiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
+        warning off; mkdir([animalinfo{2} 'EEG/']); warning on;
 
         if exist('createNQLFPFiles.m','file')
-            createNQLFPFiles(animalinfo{2}, animalinfo{3}, session);
+            createNQLFPFiles([animalinfo{2} 'EEG/'], animalinfo{3}, session);
         elseif exist('createFilterFrameworkLFPFiles.m','file')
-            createFilterFrameworkLFPFiles([animalinfo{2} 'EEG'], animalinfo{3},...
+            createFilterFrameworkLFPFiles([animalinfo{2} 'EEG/'], animalinfo{3},...
                 session);
         else
             warning('createNQLFPFiles DNE ... TrodesToMatlab potentially not on path.');
