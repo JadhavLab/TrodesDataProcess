@@ -38,43 +38,40 @@ echo This program will now create background processes to run exportdio, exportL
 echo
 read -p "Press enter to continue..."
 
-
-PROCESSESFINISHED=$(cat ${scriptpath}Logs/.processesfinished.log)
 debugtext=${scriptpath}Logs/allprocess.log.txt
-
 echo “” > $debugtext
 
 ############# CALL EXPORT PROCESSING CHILD PROGRAMS #############
 clear
 echo initiating DIO  ... ; sleep 0.5
-${scriptpath}/TrodeProcess.sh $1 exportdio $2 > ${debugtext} 2>/dev/null &
+${scriptpath}/SingleExportProcess.sh $1 exportdio $2 > ${debugtext} 2>/dev/null &
 clear
 echo initiating LFP ... ; sleep 0.5
-${scriptpath}/TrodeProcess.sh $1 exportLFP $2 >> ${debugtext} 2>/dev/null &
+${scriptpath}/SingleExportProcess.sh $1 exportLFP $2 >> ${debugtext} 2>/dev/null &
 clear
 echo initiating spikes ... ; sleep 0.5
-${scriptpath}/TrodeProcess.sh $1 exportspikes $2 >> ${debugtext} 2>/dev/null &
+${scriptpath}/SingleExportProcess.sh $1 exportspikes $2 >> ${debugtext} 2>/dev/null &
 clear
 echo initiating times ... ; sleep 0.5
-${scriptpath}/TrodeProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
-#${scriptpath}/TrodeProcess.sh $1 exportphy
+${scriptpath}/SingleExportProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
+#${scriptpath}/SingleExportProcess.sh $1 exportphy
 
 ############# WAIT FOR PROCESSES TO FINISH OR USER TO TERMINATE #############
 X=""
-PROCESSESFINISHED=$(ps --noheaders -O comm,pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ')
-while [[ ! $X = "q" ]] && [[ -n $PROCESSESFINISHED ]]
+PROCESSESRUNNING=$(ps --noheaders -O comm,pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ')
+while [[ ! $X = "q" ]] && [[ -n $PROCESSESRUNNING ]]
 do
 	clear
 	echo ==========
 	echo Current Background Master Processes: 
-	echo $PROCESSESFINISHED
-	echo "(i.e. number of export functions that completed running on all folders)"
+	echo $PROCESSESRUNNING
+	echo "(i.e. number of export functions that are running in the background on your folder structure)"
 	echo ==========
 	echo
 	echo
 	echo "Type q to quit installation, or you can use a terminal by setting ''STOPALLPROCESS=1'' and ''export STOPALLPROCESS''."
 	read -t 5 -a X
-	PROCESSESFINISHED=$(ps --noheaders -O comm,pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ')
+	PROCESSESRUNNING=$(ps --noheaders -O comm,pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ')
 done
 
 ############# TERMINATION (IF REQUESTED WHEN LOOP ABOVE EXITS) #############
@@ -97,7 +94,7 @@ fi
 
 # Run matlab scripts to convert .dat spike files into matclust files and automagically
 # create the matclust files for all .X folders
-if [[ -z $PROCESSESFINISHED ]]
+if [[ -z $PROCESSESRUNNING ]]
 then
 	echo Initiating final matlab processing ...
 	

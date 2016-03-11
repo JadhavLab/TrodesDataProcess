@@ -28,26 +28,26 @@ switch animalname
     
     % Behavior "pilot" animals
     case ''
-        animalinfo = {'DM4', [rootfolder 'Misc//DM4_direct'],'DM4'};
+        animalinfo = {'DM4', [rootfolder 'Misc//DM4_direct/'],'DM4'};
         
     % Single day animals
     case 'SJ7'
-        animalinfo = {'SJ7', [rootfolder 'W-track_SingleDay/Efizz/SJ7_direct'],'SJ7'};
+        animalinfo = {'SJ7', [rootfolder 'W-track_SingleDay/Efizz/SJ7_direct/'],'SJ7'};
     case 'SJ6'
-        animalinfo = {'SJ6', [rootfolder 'W-track_SingleDay/Efizz/SJ6_direct'],'SJ6'};
+        animalinfo = {'SJ6', [rootfolder 'W-track_SingleDay/Efizz/SJ6_direct/'],'SJ6'};
     case 'SJ1'
-        animalinfo = {'SJ1', [rootfolder 'W-track_SingleDay/Beh/SJ1_direct'],'SJ1'};
+        animalinfo = {'SJ1', [rootfolder 'W-track_SingleDay/Beh/SJ1_direct/'],'SJ1'};
     case 'SJ2'
-        animalinfo = {'SJ2', [rootfolder 'W-track_SingleDay/Beh/SJ2_direct'],'SJ2'};
+        animalinfo = {'SJ2', [rootfolder 'W-track_SingleDay/Beh/SJ2_direct/'],'SJ2'};
     case 'SJ3'
-        animalinfo = {'SJ3', [rootfolder 'W-track_SingleDay/Beh/SJ3_direct'],'SJ3'};
+        animalinfo = {'SJ3', [rootfolder 'W-track_SingleDay/Beh/SJ3_direct/'],'SJ3'};
     case 'SJ4'
-        animalinfo = {'SJ4', [rootfolder 'W-track_SingleDay/Beh/SJ4_direct'],'SJ4'};
+        animalinfo = {'SJ4', [rootfolder 'W-track_SingleDay/Beh/SJ4_direct/'],'SJ4'};
         
         
     % Ripple Disruption and Hippocampal-prefrontal animals
     case 'DM4'
-        animalinfo = {'DM4', [rootfolder 'HP_8dayExpt/RippleInterruption_current/DM4_direct'],'DM4'};
+        animalinfo = {'DM4', [rootfolder 'HP_8dayExpt/RippleInterruption_current/DM4_direct/'],'DM4'};
     case 'sjc'
         animalinfo = {'sjc', [rootfolder 'HP_8dayExpt/RippleInterruption/sjc_direct/'], 'sjc'};
     case 'RE1'

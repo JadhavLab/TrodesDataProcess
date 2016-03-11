@@ -64,7 +64,7 @@ for d = 1:numel(LFPfiles)
         if exist('createNQLFPFiles.m','file')
             createNQLFPFiles(animalinfo{2}, animalinfo{3}, session);
         elseif exist('createFilterFrameworkLFPFiles.m','file')
-            createFilterFrameworkLFPFiles(animalinfo{2}, animalinfo{3},...
+            createFilterFrameworkLFPFiles([animalinfo{2} 'EEG'], animalinfo{3},...
                 session);
         else
             warning('createNQLFPFiles DNE ... TrodesToMatlab potentially not on path.');

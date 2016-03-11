@@ -1,6 +1,6 @@
 #!/bin/bash
 ############
-# Name: 	TrodeProcess
+# Name: 	SingleExportProcess
 # Purpose: 	The purpose of this script is to crawl through a folder structure and 
 #		process all the information found therein using an input binary file
 ############
