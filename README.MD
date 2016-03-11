@@ -10,7 +10,7 @@
 		sudo port install realpath
 		
 2) Enter the path to the folder containing your export functions (e.g. exportspikes, exportdio) in TrodesPath.txt
-	e.g. "~/Code/Trodes"
+	e.g. "~/Code/Trodes/Export"
 	
 3) For automated matclust and NeuroQuery file creation, have TrodesToMatlab and BashTrodes folders/subfolders in path
 
@@ -18,7 +18,7 @@
 
 ### PURPOSE
 -----------------------------
-This script suite has three different useful functions. One thing it allows you to do, is process an entire server containing multiple experiments, each having their own folder structure of rec files in one command.
+This script suite enables one to process an entire server or folder structure containing one or multiple experiments, each having their own session folders of rec, trodeComment, stateScriptLog, and videoPositionTracking files, in one or two commands.
 
 1) SetConfiguration.sh 
 
@@ -26,7 +26,7 @@ This script suite has three different useful functions. One thing it allows you 
 	, where X = recursive folder path
 		Y = configuration file
 
-SetConfiguration permits you to take a configuration file (.xml or .trodesConf) and apply it to every rec file in a directory structure. The script dives into each folder and for every X.rec it finds, it creates a X.trodesConf with the Y configuration file provided.
+SetConfiguration permits you to take a configuration file (.xml or .trodesconf) and apply it to every rec file in a directory structure. The script dives into each folder and for every X.rec it finds, it creates a X.trodesConf with the Y configuration file provided.
 
 2) SingleExportProcess.sh
 
