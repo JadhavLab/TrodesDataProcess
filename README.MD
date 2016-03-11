@@ -3,13 +3,17 @@
 -----------------------------
 1) type "which realpath" 
 ... if nothing comes up, its a quick download. As long as you have unix, do the following
+
 	a) Debian/Ubuntu: 
 		sudo apt-get install realpath
 	b) Mac OS: If you do not have macports, install it; then run 
 		sudo port install realpath
+		
 2) Enter the path to the folder containing your export functions (e.g. exportspikes, exportdio) in TrodesPath.txt
 	e.g. "~/Code/Trodes"
+	
 3) For automated matclust and NeuroQuery file creation, have TrodesToMatlab and BashTrodes folders/subfolders in path
+
 4) DONE!
 
 ### PURPOSE
