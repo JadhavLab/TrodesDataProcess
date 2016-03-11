@@ -5,17 +5,17 @@ function animalinfo = animaldef(animalname)
 	switch deblank(username)
 		case 'ss'				% on laptop
 			if exist('/Volumes/Cerebellum/','dir')
-				rootfolder = '/Volumes/Cerebellum/HP_8dayExpt/';
+				rootfolder = '/Volumes/Cerebellum/';
 			else
-				rootfolder = '/Volumes/mordorDATA/HP_8dayExpt/';
+				rootfolder = '/Volumes/mordorDATA/';
 			end
 		case {'jadhavlab','ryoung','root'}		% lab computer
 			% particular lab computer must be rsynced such that its ~/Code
 			% and ~/Data folders matches Ryan's
-            if exist('~/Data/Mordor/HP_8dayExpt/','dir')
-                rootfolder = '~/Data/Mordor/HP_8dayExpt/';
-            elseif exist('/Volumes/Cerebellum/HP_8DayExpt','dir')
-                rootfolder = '~/Data/Mordor/HP_8dayExpt/';
+            if exist('~/Data/Mordor/','dir')
+                rootfolder = '~/Data/Mordor/';
+            elseif exist('/Volumes/Cerebellum/','dir')
+                rootfolder = '~/Volumes/Cerebellum/';
             else
                 error('animaldef: Cannot find folder on system!');
             end
@@ -26,56 +26,74 @@ function animalinfo = animaldef(animalname)
 
 switch animalname
     
+    % Behavior "pilot" animals
+    case ''
+        animalinfo = {'DM4', [rootfolder 'Misc//DM4_direct'],'DM4'};
+        
+    % Single day animals
+    case 'SJ7'
+        animalinfo = {'SJ7', [rootfolder 'W-track_SingleDay/Efizz/SJ7_direct'],'SJ7'};
+    case 'SJ6'
+        animalinfo = {'SJ6', [rootfolder 'W-track_SingleDay/Efizz/SJ6_direct'],'SJ6'};
+    case 'SJ1'
+        animalinfo = {'SJ1', [rootfolder 'W-track_SingleDay/Beh/SJ1_direct'],'SJ1'};
+    case 'SJ2'
+        animalinfo = {'SJ2', [rootfolder 'W-track_SingleDay/Beh/SJ2_direct'],'SJ2'};
+    case 'SJ3'
+        animalinfo = {'SJ3', [rootfolder 'W-track_SingleDay/Beh/SJ3_direct'],'SJ3'};
+    case 'SJ4'
+        animalinfo = {'SJ4', [rootfolder 'W-track_SingleDay/Beh/SJ4_direct'],'SJ4'};
+        
+        
     % Ripple Disruption and Hippocampal-prefrontal animals
     case 'DM4'
-        animalinfo = {'DM4', [rootfolder 'RippleInterruption_current/DM4_direct'],'DM4'};
+        animalinfo = {'DM4', [rootfolder 'HP_8dayExpt/RippleInterruption_current/DM4_direct'],'DM4'};
     case 'sjc'
-        animalinfo = {'sjc', [rootfolder 'RippleInterruption/sjc_direct/'], 'sjc'};
+        animalinfo = {'sjc', [rootfolder 'HP_8dayExpt/RippleInterruption/sjc_direct/'], 'sjc'};
     case 'RE1'
-        animalinfo = {'RE1', [rootfolder 'RippleInterruption/RE1_direct/'], 'RE1'};
+        animalinfo = {'RE1', [rootfolder 'HP_8dayExpt/RippleInterruption/RE1_direct/'], 'RE1'};
     case 'RNa'
-        animalinfo = {'RNa', [rootfolder 'RippleInterruption/RNa_direct/'], 'RNa'};
+        animalinfo = {'RNa', [rootfolder 'HP_8dayExpt/RippleInterruption/RNa_direct/'], 'RNa'};
     case 'RNb'
-        animalinfo = {'RNb', [rootfolder 'RippleInterruption/RNb_direct/'], 'RNb'};
+        animalinfo = {'RNb', [rootfolder 'HP_8dayExpt/RippleInterruption/RNb_direct/'], 'RNb'};
     case 'RNc'
-        animalinfo = {'RNc', [rootfolder 'RippleInterruption/RNc_direct/'], 'RNc'};
+        animalinfo = {'RNc', [rootfolder 'HP_8dayExpt/RippleInterruption/RNc_direct/'], 'RNc'};
     case 'RNd'
-        animalinfo = {'RNd', [rootfolder 'RippleInterruption/RNd_direct/'], 'RNd'};
+        animalinfo = {'RNd', [rootfolder 'HP_8dayExpt/RippleInterruption/RNd_direct/'], 'RNd'};
     case 'RCa'
-        animalinfo = {'RCa', [rootfolder 'RippleInterruption/RCa_direct/'], 'RCa'};
+        animalinfo = {'RCa', [rootfolder 'HP_8dayExpt/RippleInterruption/RCa_direct/'], 'RCa'};
     case 'RCb'
-        animalinfo = {'RCb', [rootfolder 'RippleInterruption/RCb_direct/'], 'RCb'};
+        animalinfo = {'RCb', [rootfolder 'HP_8dayExpt/RippleInterruption/RCb_direct/'], 'RCb'};
     case 'RCc'
-        animalinfo = {'RCc', [rootfolder 'RippleInterruption/RCc_direct/'], 'RCc'};
+        animalinfo = {'RCc', [rootfolder 'HP_8dayExpt/RippleInterruption/RCc_direct/'], 'RCc'};
     case 'RCd'
-        animalinfo = {'RCd', [rootfolder 'RippleInterruption/RCd_direct/'], 'RCd'};
+        animalinfo = {'RCd', [rootfolder 'HP_8dayExpt/RippleInterruption/RCd_direct/'], 'RCd'};
     case 'REc'
-        animalinfo = {'REc', [rootfolder 'RippleInterruption/REc_direct/'], 'REc'};
+        animalinfo = {'REc', [rootfolder 'HP_8dayExpt/RippleInterruption/REc_direct/'], 'REc'};
     case 'REd'
-        animalinfo = {'REd', [rootfolder 'RippleInterruption/REd_direct/'], 'REd'};
+        animalinfo = {'REd', [rootfolder 'HP_8dayExpt/RippleInterruption/REd_direct/'], 'REd'};
     case 'REe'
-        animalinfo = {'REe', [rootfolder 'RippleInterruption/REe_direct/'], 'REe'};
+        animalinfo = {'REe', [rootfolder 'HP_8dayExpt/RippleInterruption/REe_direct/'], 'REe'};
     case 'REf'
-        animalinfo = {'REf', [rootfolder 'RippleInterruption/REf_direct/'], 'REf'};
+        animalinfo = {'REf', [rootfolder 'HP_8dayExpt/RippleInterruption/REf_direct/'], 'REf'};
     case 'REg'
-        animalinfo = {'REg', [rootfolder 'RippleInterruption/REg_direct/'], 'REg'};
+        animalinfo = {'REg', [rootfolder 'HP_8dayExpt/RippleInterruption/REg_direct/'], 'REg'};
     case 'REh'
-        animalinfo = {'REh', [rootfolder 'RippleInterruption/REh_direct/'], 'REh'};
+        animalinfo = {'REh', [rootfolder 'HP_8dayExpt/RippleInterruption/REh_direct/'], 'REh'};
     case 'HPa'
-        animalinfo = {'HPa', [rootfolder 'HPExpt/HPa_direct/'], 'HPa'};
+        animalinfo = {'HPa', [rootfolder 'HP_8dayExpt/HPExpt/HPa_direct/'], 'HPa'};
     case 'HPb'
-        animalinfo = {'HPb', [rootfolder 'HPExpt/HPb_direct/'], 'HPb'};
+        animalinfo = {'HPb', [rootfolder 'HP_8dayExpt/HPExpt/HPb_direct/'], 'HPb'};
     case 'HPc'
-        animalinfo = {'HPc', [rootfolder 'HPExpt/HPc_direct/'], 'HPc'};
+        animalinfo = {'HPc', [rootfolder 'HP_8dayExpt/HPExpt/HPc_direct/'], 'HPc'};
     case 'Nadal'
-        animalinfo = {'Ndl', [rootfolder 'HPExpt/Ndl_direct/'], 'Ndl'};
+        animalinfo = {'Ndl', [rootfolder 'HP_8dayExpt/HPExpt/Ndl_direct/'], 'Ndl'};
     case 'Rosenthal'
-        animalinfo = {'Rtl', [rootfolder 'HPExpt/Rtl_direct/'], 'Rtl'};
+        animalinfo = {'Rtl', [rootfolder 'HP_8dayExpt/HPExpt/Rtl_direct/'], 'Rtl'};
     case 'Borg'
-        animalinfo = {'Brg', [rootfolder 'HPExpt/Brg_direct/'], 'Brg'};
+        animalinfo = {'Brg', [rootfolder 'HP_8dayExpt/HPExpt/Brg_direct/'], 'Brg'};
         
     otherwise
-        
         error(['Animal ',animalname, ' not defined.']);
 end
 

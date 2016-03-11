@@ -72,14 +72,17 @@ if [[ $(ls $f ) =~ .*\.rec ]]; then
 		recfilestring="${recfilestring}-rec $(pwd)/$f$r "
 		# Here, calculating the common string pattern for all processed files, for naming output later
 		commonstring=$(printf "%s\n%s\n" "$r" "$commonstring" | sed -e 'N;s/^\(.*\).*\n\1.*$/\1/')
-	done;
+	done
 
 	#echo "DEBUG: $2: Processing RecFile argument list: $recfilestring"
+	logdirectory=${scriptpath}Logs$(pwd | grep -o '\/[a-zA-Z0-9_]*\/[a-zA-Z0-9_]*$' | sed 's/\//./2')
 	echo ========
 	echo "About to run --> "$TRODESPIKE $recfilestring -output $commonstring"" 
-	echo Outputting to ${scriptpath}Logs/$2.log.txt
+	echo
+	echo Outputting to $logdirectory
 	echo ========
-	$TRODESPIKE $recfilestring -output $commonstring 2>> ${scriptpath}Logs/$2.log 1>> ${scriptpath}Logs/$2.log &
+	mkdir $logdirectory 2> /dev/null
+	$TRODESPIKE $recfilestring -output $commonstring 2> $logdirectory/$2.log 1> $logdirectory/$2.log &
 	echo
 fi
 

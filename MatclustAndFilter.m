@@ -1,7 +1,5 @@
 clear; close all;
 exit_status=1;
-
-try
 	
 if ~exist('animaldef.m','file')
 	warning('animaldef.m not found! asking user where to put files');
@@ -22,6 +20,9 @@ fprintf('Found %d potential spike folders! ...\n',...
     numel(spikefiles));
 for d = 1:numel(spikefiles)
     if spikefiles(d).isdir
+        
+        try
+        
         fprintf('About to process %s matclust files ...\n',...
             spikefiles(d).name);
 		[where_to_proces, ~] = fileparts(spikefiles(d).name);
@@ -29,10 +30,15 @@ for d = 1:numel(spikefiles)
 		
 		% Processes the matclust files into the same .spikes folder
         createAllMatclustFiles;
+        
+        catch ME
+            disp('Error occured while running automated matclust/filter code.');
+            cd(currfolder);
+            save([datestr(now,'mm.dd-HH:MM-') 'Matclust_BashTrodes_Matlab_ProcessingError']);
+        end
 
     end
 end
-
 
 cd(currfolder);
 	
@@ -41,6 +47,8 @@ LFPfiles = subdir('*.LFP');
 if ~isempty(LFPfiles)
 for d = 1:numel(LFPfiles)
     if LFPfiles(d).isdir
+        
+        try
 
         fprintf('About to process %s into filter framework ...\n', ...
             LFPfiles(d).name);
@@ -61,16 +69,25 @@ for d = 1:numel(LFPfiles)
         else
             warning('createNQLFPFiles DNE ... TrodesToMatlab potentially not on path.');
         end
+        
+        catch ME
+            disp('Error occured while running automated matclust/filter code.');
+            cd(currfolder);
+            save([datestr(now,'mm.dd-HH:MM-') 'LFP_BashTrodes_Matlab_ProcessingError']);
+        end
 
     end
 end
 end
+
 
 %% Process all .DIO into filter framework files
 DIOfiles = subdir('*.DIO');
 if ~isempty(DIOfiles)
 for d = 1:numel(DIOfiles)
     if DIOfiles(d).isdir
+        
+        try
 
         fprintf('About to process %s into filter framework ...\n', ...
             DIOfiles(d).name);
@@ -91,16 +108,25 @@ for d = 1:numel(DIOfiles)
         else
             warning('createNQDioFiles DNE ... TrodesToMatlab potentially not on path.');
         end
+        
+        catch ME
+            disp('Error occured while running automated matclust/filter code.');
+            cd(currfolder);
+            save([datestr(now,'mm.dd-HH:MM-') 'DIO_BashTrodes_Matlab_ProcessingError']);
+        end
 
     end
 end
 end
+
 
 %% Process all .trodeComments into filter framework files
 commentFiles = subdir('*.trodesComments');
 if ~isempty(commentFiles)
 for d = 1:numel(commentFiles)
     if ~commentFiles(d).isdir
+        
+        try
 
         fprintf('About to process %s into filter framework ...\n', ...
             commentFiles(d).name);
@@ -115,6 +141,7 @@ for d = 1:numel(commentFiles)
         
         if exist('createNQTaskFile.m','file')
             createNQTaskFile(animalinfo{2}, animalinfo{3}, session);
+            createNQTrialFile(animalinfo{2}, animalinfo{3}, session);
         elseif exist('createFilterFrameworkTaskFile.m','file')
             createFilterFrameworkTaskFile(animalinfo{2}, animalinfo{3},...
                 session);
@@ -122,6 +149,12 @@ for d = 1:numel(commentFiles)
                 session);
         else
             warning('createNQTaskFile DNE ... TrodesToMatlab potentially not on path.');
+        end
+        
+        catch ME
+            disp('Error occured while running automated matclust/filter code.');
+            cd(currfolder);
+            save([datestr(now,'mm.dd-HH:MM-') 'TrialTask_BashTrodes_Matlab_ProcessingError']);
         end
 
     end
@@ -135,6 +168,8 @@ videoTrackingFiles = subdir('*.videoPositionTracking');
 if ~isempty(videoTrackingFiles)
 for d = 1:numel(videoTrackingFiles)
     if ~videoTrackingFiles(d).isdir
+        
+        try
 
         fprintf('About to process %s into filter framework ...\n', ...
             videoTrackingFiles(d).name);
@@ -155,6 +190,12 @@ for d = 1:numel(videoTrackingFiles)
         else
             warning('createNQPosFiles DNE ... TrodesToMatlab potentially not on path.');
         end
+        
+        catch ME
+            disp('Error occured while running automated matclust/filter code.');
+            cd(currfolder);
+            save([datestr(now,'mm.dd-HH:MM-') 'PosTrack_BashTrodes_Matlab_ProcessingError']);
+        end
        
     end
 end
@@ -163,11 +204,10 @@ else
 end	
 
 %% Terminate
-catch ME
-	disp('Error occured while running automated matclust/filter code.');
-    cd(currfolder);
-    save('BashTrodes_Matlab_ProcessingError');
-end
 
-exit_status = 0;
-% exit
+% Compute exit status
+if ~exist('ME','var') || isempty(ME)
+    exit_status = 0;
+else
+    exit_status = 0;
+end

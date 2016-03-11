@@ -60,3 +60,8 @@ done;
 cd $ORIGINAL_PATH
 
 printf $colortag _______________________________________________________
+
+if [[ $levelsdeep == "0" ]]
+then
+	printf "\e[0m"
+fi
