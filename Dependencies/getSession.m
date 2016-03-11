@@ -18,7 +18,7 @@ function session = getSession(fullfilename)
     % Create filter for date and session
 %     datesessionfilt = ...
 %         '(?<session>[0-9]{2}_)?(?<date>[12]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1})';
-      propertyfilt = '(?<animal>[A-Z]{1,10}[0-9]{0,2}_)?(?<session>[0-9]{2}_)?(?<date>[12]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1})(_[[:alphanum:]])?(?<directtag>_direct)?'
+      propertyfilt = '(?<animal>[A-Z]{1,10}[0-9]{0,2}_)?(?<session>[0-9]{2}_)?(?<date>[12]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1})(_[[:alphanum:]])?(?<directtag>_direct)?';
 
     % Collect all session and dates
     dates = []; sessions = [];

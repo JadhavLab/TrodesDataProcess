@@ -109,29 +109,15 @@ then
 	echo ----------------------------------------------------------
 	currpath=$(pwd)
 	cd $1
-	MATLAB_COMMAND="path(genpath('${scriptpath}'),path);cd('$1');pwd;MatclustAndFilter;"
+	MATLAB_COMMAND="path(genpath('${scriptpath}'),path);cd('$1');pwd;MatclustAndFilter;if(exit_status==0);exit;end;"
 	echo About to run $MATLAB_COMMAND in matlab
 	matlab -nodisplay -nosplash -r $MATLAB_COMMAND
 	cd $currpath
 fi
 
-#if [ -z $(echo $LD_LIBRARY_PATH | grep libmwlaunchermain.so) ] ;
-#then
-#	echo
-#	echo ----------------------------------------------------------
-#	echo Before we process matclust files and filter files, we need to put a matlab libary \
-#		on path.
-#	echo Searching ...
-#	missinglibrary=$(find / -name libmwlaunchermain.so 2> /dev/null)
-#	missinglibrary=$(echo $missinglibrary | head -n 1)
-#	echo Adding library ...
-#	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$missinglibrary
-#	echo ----------------------------------------------------------
-#	echo
-#fi
-
-else
+else # If cannot find realpath, we ask user to install it and exit
 
 echo "You need to install realpath with either macports or apt-get before using this program."
+exit 1
 
 fi

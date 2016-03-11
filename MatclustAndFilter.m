@@ -1,4 +1,5 @@
 clear; close all;
+exit_status=1;
 
 try
 	
@@ -84,7 +85,7 @@ for d = 1:numel(DIOfiles)
 
         if exist('createNQDioFiles.m','file')
             createNQDioFiles(animalinfo{2}, animalinfo{3}, session);
-        elseif exist('createNQDioFiles.m','file')
+        elseif exist('createFilterFrameworkDioFiles.m','file')
             createFilterFrameworkDioFiles(animalinfo{2}, animalinfo{3}, ...
                 session);
         else
@@ -167,5 +168,6 @@ catch ME
     cd(currfolder);
     save('BashTrodes_Matlab_ProcessingError');
 end
-	
+
+exit_status = 0;
 % exit
