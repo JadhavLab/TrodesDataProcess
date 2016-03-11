@@ -43,7 +43,7 @@ for f in $(ls $1); do
                 let levelsdeep=$levelsdeep+1
                 let color=$levelsdeep+91
                 colortag="\e[${color}m"
-                printf "$colortag Recursing into $(pwd)/$f"
+                printf "$colortag Recursing into $(pwd)/$f \n"
                 $SCRIPT $(pwd)/$f $2 $levelsdeep
                 let levelsdeep=$levelsdeep-1
 	fi

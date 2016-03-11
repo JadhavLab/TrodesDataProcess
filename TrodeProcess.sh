@@ -82,7 +82,8 @@ if [[ $(ls $f ) =~ .*\.rec ]]; then
 	echo Outputting to $logdirectory
 	echo ========
 	mkdir $logdirectory 2> /dev/null
-	$TRODESPIKE $recfilestring -output $commonstring 2> $logdirectory/$2.log 1> $logdirectory/$2.log &
+	echo "" > $logdirectory/$2.log
+	$TRODESPIKE $recfilestring -output $commonstring 2>> $logdirectory/$2.log 1>> $logdirectory/$2.log &
 	echo
 fi
 

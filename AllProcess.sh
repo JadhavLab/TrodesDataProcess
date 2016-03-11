@@ -61,7 +61,7 @@ ${scriptpath}/TrodeProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
 
 ############# WAIT FOR PROCESSES TO FINISH OR USER TO TERMINATE #############
 X=""
-PROCESSESFINISHED=$(ps -A | grep exportLFP | cut -d ' ' -f1,7) $(ps -A | grep exportspikes | cut -d ' ' -f1,7) $(ps -A | grep exportdio | cut -d ' ' -f1,7) $(ps -A | grep exporttime | cut -d ' ' -f1,7) # NEW METHOD
+PROCESSESFINISHED=$(ps --noheaders -O comm,pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ')
 while [[ ! $X = "q" ]] && [[ -n $PROCESSESFINISHED ]]
 do
 	clear
@@ -74,7 +74,7 @@ do
 	echo
 	echo "Type q to quit installation, or you can use a terminal by setting ''STOPALLPROCESS=1'' and ''export STOPALLPROCESS''."
 	read -t 5 -a X
-	PROCESSESFINISHED=$(ps -A | grep exportLFP | cut -d ' ' -f1,7) $(ps -A | grep exportspikes | cut -d ' ' -f1,7) $(ps -A | grep exportdio | cut -d ' ' -f1,7) $(ps -A | grep exporttime | cut -d ' ' -f1,7) # NEW METHOD
+	PROCESSESFINISHED=$(ps --noheaders -O comm,pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ')
 done
 
 ############# TERMINATION (IF REQUESTED WHEN LOOP ABOVE EXITS) #############
@@ -89,11 +89,7 @@ then
 	# Destroy currently running processes
 	echo Destroying currently running Trode export programs ...
 	sleep 1
-	kill $(ps -A | grep exportLFP | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
-	kill $(ps -A | grep exportspikes | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
-	kill $(ps -A | grep exportdio | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
-	kill $(ps -A | grep exporttime | cut -d ' ' -f1,2 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
-
+	kill  $(ps --noheaders -O pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ') 2>>${debugtext} 1>/dev/null
 	echo All export processes halted! Done.
 fi
 
