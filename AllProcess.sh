@@ -44,7 +44,7 @@ echo “” > $debugtext
 ############# CALL EXPORT PROCESSING CHILD PROGRAMS #############
 clear
 echo initiating DIO  ... ; sleep 0.5
-${scriptpath}/SingleExportProcess.sh $1 exportdio $2 > ${debugtext} 2>/dev/null &
+${scriptpath}/SingleExportProcess.sh $1 exportdio $2 >> ${debugtext} 2>/dev/null &
 clear
 echo initiating LFP ... ; sleep 0.5
 ${scriptpath}/SingleExportProcess.sh $1 exportLFP $2 >> ${debugtext} 2>/dev/null &
@@ -55,6 +55,10 @@ clear
 echo initiating times ... ; sleep 0.5
 ${scriptpath}/SingleExportProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
 #${scriptpath}/SingleExportProcess.sh $1 exportphy
+
+clear
+echo ...
+sleep 3;
 
 ############# WAIT FOR PROCESSES TO FINISH OR USER TO TERMINATE #############
 X=""
