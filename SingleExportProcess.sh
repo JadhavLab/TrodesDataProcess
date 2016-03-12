@@ -56,26 +56,27 @@ then
 fi
 
 ############# CHECK CURRENT LOCATION FOR REC FILES TO PROCESS #############
-if [[ $(ls $f ) =~ .*\.rec ]]; then
+if [[ $(ls $1 ) =~ .*\.rec ]]; then
 	# This is directory that has recfiles!
 	echo
 	echo
-        echo Found folder $f with rec files and processing...
+        echo Found folder $1 with rec files and processing...
 	
 	# Now to concatonate the arguments to feed into the export function
 	recfilestring=""
-	commonstring=$(ls -1 *.rec | head -n 1)
+	commonstring=$(ls -1 *$3*.rec | head -n 1)
 	# Create rec file argument string to pass to the export function, containing all rec files to process in order
+	echo result of recfile list: $(ls -tr *$3*.rec)
 	for r in $(ls -tr *$3*.rec) # crawls over all rec files, oldest to newest
 	do
 		# Append to the rec file argument list
-		recfilestring="${recfilestring}-rec $(pwd)/$f$r "
+		recfilestring="${recfilestring}-rec $(pwd)/$r "
 		# Here, calculating the common string pattern for all processed files, for naming output later
 		commonstring=$(printf "%s\n%s\n" "$r" "$commonstring" | sed -e 'N;s/^\(.*\).*\n\1.*$/\1/')
 	done
 
 	#echo "DEBUG: $2: Processing RecFile argument list: $recfilestring"
-	logdirectory=${scriptpath}Logs$(pwd | grep -o '\/[a-zA-Z0-9_]*\/[a-zA-Z0-9_]*$' | sed 's/\//./2')
+	logdirectory=${scriptpath}Logs$(pwd | grep -o '\/[a-zA-Z0-9_\-]*\/[a-zA-Z0-9_\-]*$' | sed 's/\//./2')
 	echo ========
 	echo "About to run --> "$TRODESPIKE $recfilestring -output $commonstring"" 
 	echo
@@ -131,8 +132,9 @@ cd $ORIGINAL_PATH
 # If it's running stand-alone, this doesn't matter
 if [[ $levelsdeep = "0" ]]
 then
-	PROCESSESFINISHED=$(cat ${scriptpath}Logs/.processesfinished.log)
-	let PROCESSESFINISHED=$PROCESSESFINISHED+1;
-	echo $PROCESSESFINISHED > ${scriptpath}Logs/.processesfinished.log
+	echo finished process tree ...
+	#PROCESSESFINISHED=$(cat ${scriptpath}Logs/.processesfinished.log)
+	#let PROCESSESFINISHED=$PROCESSESFINISHED+1;
+	#echo $PROCESSESFINISHED > ${scriptpath}Logs/.processesfinished.log
 fi
 
