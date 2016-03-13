@@ -38,7 +38,8 @@ echo This program will now create background processes to run exportdio, exportL
 echo
 read -p "Press enter to continue..."
 
-debugtext=${scriptpath}Logs/allprocess.log.txt
+directoryrunningfrom=$(pwd | grep -o '[a-zA-Z0-9_\-]*$')
+debugtext=${scriptpath}Logs/${directoryrunningfrom}.allprocess.log
 echo “” > $debugtext
 
 ############# CALL EXPORT PROCESSING CHILD PROGRAMS #############
@@ -108,7 +109,7 @@ then
 	cd $1
 	MATLAB_COMMAND="path(genpath('${scriptpath}'),path);cd('$1');pwd;MatclustAndFilter;if(exit_status==0);exit;end;"
 	echo About to run $MATLAB_COMMAND in matlab
-	matlab -nodisplay -nosplash -r $MATLAB_COMMAND
+	matlab -nodisplay -nosplash -logfile ${scriptpath}Logs/${directoryrunningfrom}.matlab.log -r $MATLAB_COMMAND
 	cd $currpath
 fi
 
