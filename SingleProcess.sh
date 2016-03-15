@@ -1,8 +1,11 @@
 #!/bin/bash
 ############
-# Name: 	SingleExportProcess
+# Name: 	SingleProcess
+# Author: 	Ryan Young
 # Purpose: 	The purpose of this script is to crawl through a folder structure and 
-#		process all the information found therein using an input binary file
+#		process all the rec files found therein for a single Trodes export 
+# 		function specified by the user. Each processing instance opens as a background
+# 		shell process so processing can be run on multiple cores. 
 ############
 
 # INPUTS
@@ -74,6 +77,12 @@ if [[ $(ls $1 ) =~ .*\.rec ]]; then
 		# Here, calculating the common string pattern for all processed files, for naming output later
 		commonstring=$(printf "%s\n%s\n" "$r" "$commonstring" | sed -e 'N;s/^\(.*\).*\n\1.*$/\1/')
 	done
+
+	# If common string ends with a _ .. remove it!
+	if [[ $(echo $commonstring | tail -c 1) == "_" ]]
+	then
+		commonstring=$(echo $commonstring | sed -r 's/[_]{1}$/''/g')
+	fi
 
 	#echo "DEBUG: $2: Processing RecFile argument list: $recfilestring"
 	logdirectory=${scriptpath}Logs$(pwd | grep -o '\/[a-zA-Z0-9_\-]*\/[a-zA-Z0-9_\-]*$' | sed 's/\//./2')

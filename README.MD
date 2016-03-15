@@ -28,9 +28,9 @@ This script suite enables one to process an entire server or folder structure co
 
 SetConfiguration permits you to take a configuration file (.xml or .trodesconf) and apply it to every rec file in a directory structure. The script dives into each folder and for every X.rec it finds, it creates a X.trodesConf with the Y configuration file provided.
 
-2) SingleExportProcess.sh
+2) SingleProcess.sh
 
-	Usage: ./SingleExportProcess.sh X Y Z
+	Usage: ./SingleProcess.sh X Y Z
 	, where X = recursive folder path
 		Y = exportdio or exporttime or exportspikes or exportLFP
 		Z = filter string, e.g. SJ6

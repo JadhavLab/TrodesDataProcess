@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Name:		AllProcess.sh
+# Author:	Ryan Young
+# Description: 	Script that processes applies all export functions to a folder hierarchy. Works by calling a nested tree of SingleProcess.sh background processes, and tracks them while they run. When the processes stop, it applies MatclustAndFilter.m as a final processing step -- this m-file can be run as a standalone script, but for conveinence, this script automatically applies it at the end of processing.
+# Inputs: 	$1 - Path to parent folder
+# 		$2 - (Optional) Filter string .. rec files that do not match the filter string will not be processed.
+
 # Add SKIPPROCESSED=1 to skip processed rec files
 
 ############# SET FLAGS AND IMPORTANT VARIABLES #############
@@ -45,17 +51,17 @@ echo “” > $debugtext
 ############# CALL EXPORT PROCESSING CHILD PROGRAMS #############
 clear
 echo initiating DIO  ... ; sleep 0.5
-${scriptpath}/SingleExportProcess.sh $1 exportdio $2 >> ${debugtext} 2>/dev/null &
+${scriptpath}/SingleProcess.sh $1 exportdio $2 >> ${debugtext} 2>/dev/null &
 clear
 echo initiating LFP ... ; sleep 0.5
-${scriptpath}/SingleExportProcess.sh $1 exportLFP $2 >> ${debugtext} 2>/dev/null &
+${scriptpath}/SingleProcess.sh $1 exportLFP $2 >> ${debugtext} 2>/dev/null &
 clear
 echo initiating spikes ... ; sleep 0.5
-${scriptpath}/SingleExportProcess.sh $1 exportspikes $2 >> ${debugtext} 2>/dev/null &
+${scriptpath}/SingleProcess.sh $1 exportspikes $2 >> ${debugtext} 2>/dev/null &
 clear
 echo initiating times ... ; sleep 0.5
-${scriptpath}/SingleExportProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
-#${scriptpath}/SingleExportProcess.sh $1 exportphy
+${scriptpath}/SingleProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
+#${scriptpath}/SingleProcess.sh $1 exportphy
 
 clear
 echo ...

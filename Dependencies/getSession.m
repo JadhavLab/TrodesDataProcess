@@ -1,3 +1,4 @@
+
 function session = getSession(fullfilename)
 
     % Store the calling folder
@@ -5,8 +6,16 @@ function session = getSession(fullfilename)
 
     % The following regular expression will be used to find the parent
     % folders date or session number, and if no sesion number, then derive
-    % one from the other dates in the folder
-    stringstartfilt = '((\/)([0-9]{2}_)?([12]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1})(.*\/))';
+    % one from the other dates in the folder. Session folder is allowed to
+    % have up to three descriptive sessions separated by an underscore: a
+    % regular description string, session string and date string. They must
+    % be in that order, although, the session and string descriptor are
+    % optional.
+    stringstartfilt = [ ...
+        '((\/)([a-zA-Z0-9_\-]*_)?'...   String descriptor, which will be ignored, unless its an animal, in which case it will be skipped
+        '([0-9]{2}_)?'...               Session descriptor
+        '([12]{1}[0-9]{3}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1})(.*\/))'... Date descriptor
+        ];
     
     % Let's find the parent folder containing sessions
     starts = regexp(fullfilename,stringstartfilt,'start');
@@ -28,8 +37,9 @@ function session = getSession(fullfilename)
             % Identify parent directory containing sessions
             results = regexp(files(f).name,propertyfilt,'names');
             
-            % Skip anything that's not a raw data session folder
-            if ~isempty(results.animal) || ~isempty(results.directtag)
+            % Skip anything that's not a raw data session folder or not a
+            % match
+            if isempty(results) || ~isempty(results.animal) || ~isempty(results.directtag)
                 continue;
             end
             
