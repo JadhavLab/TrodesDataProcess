@@ -35,7 +35,7 @@ SetConfiguration permits you to take a configuration file (.xml or .trodesconf) 
 		Y = exportdio or exporttime or exportspikes or exportLFP
 		Z = filter string, e.g. SJ6
 
-Trode process applies to every .rec it finds in the entire nested folder structure of X and starts extraction program Y. Z is optional, and indicates a rec file filter. E.g. if it's DM4, only rec files beginning with DM4 will be processed. When the program finds a folder of rec files, it stitches them together into a single resultant folder, just like the matlab export functions. Further, it titles the output with the largest string common in all matching rec file names. E.g. DM4_Wmaze1.rec DM4_WMaze2.rec would produce a folder for the the output as DM4_WMaze.*
+SingleProcess can apply any Trodes export function Y to every .rec it finds in the entire nested folder structure of X. Z is an optional filter argument, and the script will only process files partially matching filter string Z. E.g. if it's "DM4", only rec files beginning with DM4 will be processed. When the program finds a folder of rec files, it stitches them together into a single resultant output, just like the matlab export functions. Further, it titles the output with the largest string common in all matching rec file names. E.g. DM4_Wmaze1.rec DM4_WMaze2.rec would produce a folder for the the output as DM4_WMaze.*
 
 3) AllProcess.sh
 
