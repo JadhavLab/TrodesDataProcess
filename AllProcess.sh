@@ -71,6 +71,7 @@ sleep 3;
 ############# WAIT FOR PROCESSES TO FINISH OR USER TO TERMINATE #############
 X=""
 PROCESSESRUNNING=$(ps --noheaders -O comm,pid -C exportLFP -C exportspikes -C exporttime -C exportdio | cut -d ' ' -f1,2,3 | tr '\n' ' ')
+echo $PROCESSESRUNNING && sleep 1
 while [[ ! $X = "q" ]] && [[ -n $PROCESSESRUNNING ]]
 do
 	clear
@@ -106,6 +107,7 @@ fi
 
 # Run matlab scripts to convert .dat spike files into matclust files and automagically
 # create the matclust files for all .X folders
+PROCESSESRUNNING=blah
 if [[ -z $PROCESSESRUNNING ]]
 then
 	echo Initiating final matlab processing ...

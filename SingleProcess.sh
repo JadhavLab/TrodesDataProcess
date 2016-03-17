@@ -35,19 +35,6 @@ TrodesPath=$(cat ${scriptpath}/TrodesPath.txt);
 # Path to Trode Spikes processor
 TRODESPIKE=${TrodesPath}/$2
 
-# Switch to determine the name of processed folders, for detecting when
-# we already processed data, and don't need to again.
-case $2 in
-	exportLFP )
-		procExt=.LFP;;
-	exportdio )
-		procExt=.DIO;;
-	exportspikes )
-		procExt=.spikes;;
-	exporttime )
-		proceExt=.time;;
-esac
-
 # Save original path and jump into the folder we're about to process
 ORIGINAL_PATH=$(pwd);
 cd $1
@@ -69,7 +56,8 @@ if [[ $(ls $1 ) =~ .*\.rec ]]; then
 	recfilestring=""
 	commonstring=$(ls -1 *$3*.rec | head -n 1)
 	# Create rec file argument string to pass to the export function, containing all rec files to process in order
-	echo result of recfile list: $(ls -tr *$3*.rec)
+	echo recfile filter '*'$3'*'.rec
+	echo ---> result of recfile list: $(ls -tr *$3*.rec)
 	for r in $(ls -tr *$3*.rec) # crawls over all rec files, oldest to newest
 	do
 		# Append to the rec file argument list
@@ -78,10 +66,17 @@ if [[ $(ls $1 ) =~ .*\.rec ]]; then
 		commonstring=$(printf "%s\n%s\n" "$r" "$commonstring" | sed -e 'N;s/^\(.*\).*\n\1.*$/\1/')
 	done
 
-	# If common string ends with a _ .. remove it!
-	if [[ $(echo $commonstring | tail -c 2) == "_" ]]
+	# NAMEING .DATA folder
+	# If filter string passed, then use that to name the folder
+	if [[ -n $3 ]] && [[ ! $3 =~ "[0-9]{1,2}" ]]
 	then
+		commonstring=$3
+	else
+		# Use commonstring for folder name and remove trailing _ if it exists
+		if [[ $(echo $commonstring | tail -c 2) == "_" ]]
+		then
 		commonstring=$(echo $commonstring | sed -r 's/[_]{1}$/''/g')
+		fi
 	fi
 
 	#echo "DEBUG: $2: Processing RecFile argument list: $recfilestring"
@@ -113,7 +108,7 @@ for f in $(ls $1); do
 		
 		echo "$2: Recursing into $(pwd)/$f"
 		let levelsdeep=$levelsdeep+1
-                $SCRIPT $(pwd)/$f $2 $levelsdeep 1>&1 | sed 's/^/    /'
+                $SCRIPT $(pwd)/$f $2 $3 $levelsdeep 1>&1 | sed 's/^/    /'
                 let levelsdeep=$levelsdeep-1
 		echo 
 	fi
