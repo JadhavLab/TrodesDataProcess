@@ -1,12 +1,13 @@
-
 ### INSTALLATION INSTRUCTIONS
 -----------------------------
+Note: Linux only at the moment -- Mac OS fixes coming soon.
+
 1) type "which realpath" 
 ... if nothing comes up, its a quick download. As long as you have unix, do the following
 
 	a) Debian/Ubuntu: 
 		sudo apt-get install realpath
-	b) Mac OS: If you do not have macports, install it; then run 
+	b) Mac OS: (SCRIPTS NOT WORKING FOR MAC AT THE MOMENT) If you do not have macports, install it; then run 
 		sudo port install realpath
 		
 2) Enter the path to the folder containing your export functions (e.g. exportspikes, exportdio) in TrodesPath.txt
