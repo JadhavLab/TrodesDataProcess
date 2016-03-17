@@ -35,17 +35,18 @@ then
 fi
 
 export STOPALLPROCESS=0 # Flag that tracks whether user has requested to halt processing
-echo "0" > ${scriptpath}Logs/.processesfinished.log # Set file that tracks how many of the children TrodeProcess parent background processes finished, really can't used environmental variables here! Because parent processes cannot get an exported copy of a variable from children. Hence, the file, which is hidden and inside the log folder.
 
 clear
 echo
 echo
-echo This program will now create background processes to run exportdio, exportLFP, exportspikes, exporttimes, and exportphy in parallel on all recfiles in folder structure $1 with file filter $2 ...
+echo This program will now create background processes to run exportdio, exportLFP, exportspikes, exporttimes, and exportphy 
+echo in parallel on all recfiles in folder structure $1 with file filter $2 ...
 echo
 read -p "Press enter to continue..."
 
 directoryrunningfrom=$(pwd | grep -o '[a-zA-Z0-9_\-]*$')
 debugtext=${scriptpath}Logs/${directoryrunningfrom}.allprocess.log
+rm $debugtext
 echo “” > $debugtext
 
 ############# CALL EXPORT PROCESSING CHILD PROGRAMS #############

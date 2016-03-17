@@ -79,7 +79,7 @@ if [[ $(ls $1 ) =~ .*\.rec ]]; then
 	done
 
 	# If common string ends with a _ .. remove it!
-	if [[ $(echo $commonstring | tail -c 1) == "_" ]]
+	if [[ $(echo $commonstring | tail -c 2) == "_" ]]
 	then
 		commonstring=$(echo $commonstring | sed -r 's/[_]{1}$/''/g')
 	fi
