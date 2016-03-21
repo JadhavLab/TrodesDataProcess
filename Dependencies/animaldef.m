@@ -25,6 +25,12 @@ function animalinfo = animaldef(animalname)
 	end
 
 switch animalname
+
+    % CA3-CA1 animals
+    % Right now, just animals we navigated tetrodes down to CA3 to figure out how to get there
+    case 'EG1'
+	animalinfo = {'EG1', [rootfolder 'CA3-CA1/Efizz/EG1_direct/'] , 'EG1'};
+
         
     % Single day animals
     case 'JS7'
@@ -41,7 +47,7 @@ switch animalname
         animalinfo = {'SJ4', [rootfolder 'W-track_SingleDay/Beh/SJ4_direct/'],'SJ4'};
         
         
-    % Ripple Disruption and Hippocampal-prefrontal animals
+    % Ripple Disruption  animals
     case 'DM4'
         animalinfo = {'DM4', [rootfolder 'HP_8dayExpt/RippleInterruption_current/DM4_direct/'],'DM4'};
     case 'sjc'
@@ -76,6 +82,8 @@ switch animalname
         animalinfo = {'REg', [rootfolder 'HP_8dayExpt/RippleInterruption/REg_direct/'], 'REg'};
     case 'REh'
         animalinfo = {'REh', [rootfolder 'HP_8dayExpt/RippleInterruption/REh_direct/'], 'REh'};
+
+    % Hippocampal-prefrontal animals
     case 'HPa'
         animalinfo = {'HPa', [rootfolder 'HP_8dayExpt/HPExpt/HPa_direct/'], 'HPa'};
     case 'HPb'
@@ -89,6 +97,7 @@ switch animalname
     case 'Borg'
         animalinfo = {'Brg', [rootfolder 'HP_8dayExpt/HPExpt/Brg_direct/'], 'Brg'};
         
+    % UH  OH -- animal name not recognized ...
     otherwise
         error(['Animal ',animalname, ' not defined.']);
 end
