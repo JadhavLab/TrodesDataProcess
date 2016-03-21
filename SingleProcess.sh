@@ -78,6 +78,11 @@ if [[ $(ls $1 ) =~ .*\.rec ]]; then
 		commonstring=$(echo $commonstring | sed -r 's/[_]{1}$/''/g')
 		fi
 	fi
+	# If commonstring is STILL empty, presumably because there is no filter string and no common string structure in the rec files, then name it the parent folder's name
+	if [[ -z $commonstring ]]
+	then
+		commonstring=$(pwd | grep -o '\/[a-zA-Z0-9_\-]*$' | grep -o '[a-zA-Z0-9_\-]*');
+	fi
 
 	#echo "DEBUG: $2: Processing RecFile argument list: $recfilestring"
 	logdirectory=${scriptpath}Logs$(pwd | grep -o '\/[a-zA-Z0-9_\-]*\/[a-zA-Z0-9_\-]*$' | sed 's/\//./2')

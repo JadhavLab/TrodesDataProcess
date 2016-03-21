@@ -10,6 +10,9 @@
 
 ############# SET FLAGS AND IMPORTANT VARIABLES #############
 
+RED='\033[0;31m' # Red
+NC='\033[0m' # No Color
+
 dependency_path=$(which realpath)
 detect_fundamental_program=${#dependency_path}
 if [ "$detect_fundamental_program" -gt "0" ]
@@ -76,9 +79,11 @@ while [[ ! $X = "q" ]] && [[ -n $PROCESSESRUNNING ]]
 do
 	clear
 	echo ==========
-	echo Current Background Master Processes: 
+	echo Current Background Master Processes:
+	printf $RED 
 	echo $PROCESSESRUNNING
-	echo "(i.e. number of export functions that are running in the background on your folder structure)"
+	printf $NC
+	echo "(i.e. export functions that are running in the background on your folder structure)"
 	echo ==========
 	echo
 	echo
