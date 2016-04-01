@@ -28,6 +28,7 @@ fi
 # Get the path to this script, for purpose of recursion
 SCRIPT=`realpath $0`
 scriptpath=$(echo $SCRIPT | sed 's/\/[a-zA-Z0-9]*.sh$/\//')
+mkdir ${scriptpath}Logs
 
 # Obtain path to Trodes
 TrodesPath=$(cat ${scriptpath}/TrodesPath.txt);
