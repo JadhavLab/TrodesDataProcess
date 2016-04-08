@@ -54,7 +54,3 @@ The program proceeds to call MatclustAndFilter.m on all files that it finished p
 
 This matlab function finds every .LFP, .spikes, .time, .DIO folder nested subfolders and process them to genereate matclust and NeuroQuery (Filter Framework) files. In order to assign a session number automatically, it only has expectation. Every time it finds a .DATA folder, it looks at the parent folder to infer its session ID number. So, suppose you have X.LFP, it then looks at the folder structure above it, and per folder containing one single session, it expects a date or session number and date in the folder name. For example, X.LFP may exist in 20160204, and the folder that contains that folder has sessions 20160203 20160204 20160205. It then infers that the session ID of X.LFP is 2. It does this by ranking dates it pulls out and computing its location in that list. ALternatively, one can structure folders containing each session as 01_date1 02_date2 03_date2 04_date3 and so on, and it will ignore the date, and interpet the number leading the underscore as session number. All other folders in the hierarchy can be titled however.
 
-#### OTHER FEATURES
----------------------------------
-If you set an environmental variable SKIPPROCESSED to 1, it will skip rec files that have already been processed.
-	type "export SKIPPROCESSED=1", and then run the programs above as normal
