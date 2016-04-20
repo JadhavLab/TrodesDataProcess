@@ -9,13 +9,15 @@ function animalinfo = animaldef(animalname)
 			else
 				rootfolder = '/Volumes/mordorDATA/';
 			end
-		case {'jadhavlab','ryoung','root'}		% lab computer
+		case {'jadhavlab','ryoung','root','mcz'}		% lab computer
 			% particular lab computer must be rsynced such that its ~/Code
 			% and ~/Data folders matches Ryan's
             if exist('~/Data/Mordor/','dir')
                 rootfolder = '~/Data/Mordor/';
             elseif exist('/Volumes/Cerebellum/','dir')
                 rootfolder = '~/Volumes/Cerebellum/';
+            elseif exist('/media/mcz/mordorDATA/','dir')
+                rootfolder = '~/media/mcz/mordorDATA/'
             else
                 error('animaldef: Cannot find folder on system!');
             end
@@ -46,6 +48,9 @@ switch animalname
     case 'SJ4'
         animalinfo = {'SJ4', [rootfolder 'W-track_SingleDay/Beh/SJ4_direct/'],'SJ4'};
         
+    % New 8day HC-PFC animals
+    case 'SJ5'
+        animalinfo = {'SJ5', [rootfolder 'HP_8dayExpt/SJ5_direct/'],'SJ5'};    
         
     % Ripple Disruption  animals
     case 'DM4'
