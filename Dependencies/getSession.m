@@ -67,6 +67,8 @@ function session = getSession(fullfilename)
         this_session=regexp(fullfilename,propertyfilt,'names');
         this_session=this_session.session;
         
+        if this_session(end) == '_'; this_session= this_session(1:end-1); end;
+        % truncate following underscore, if left over from regexp
         session = str2num(this_session);
         
     end
