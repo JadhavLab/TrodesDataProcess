@@ -5,6 +5,16 @@
 #		dragging all compiled binaries into the right location.
 #
 #		$3 is an optional argument indicating whether or not we ought to clean the folder
+# 		$4-$n can be names of specific modules to compile, but if not provided, 
+#		it assumes you want the entire repo compiled.
+#
+#		If you want it to automatically open up the freshly compiled trodes repo after finishing,
+#		type 'export RUNTRODES=1' before executing this tool. After all make instances stop, your
+#		freshly copmiled trodes opens.
+#
+#		I wrote this because I wanted a one button push experience when making changes to
+#		Trodes or modules, and seeing the resulting change in action.
+
 
 function executeCompile()
 {
