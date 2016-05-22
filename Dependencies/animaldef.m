@@ -35,6 +35,8 @@ switch animalname
 
         
     % Single day animals
+    case 'ER1'
+        animalinfo = {'ER1', [rootfolder 'SingleDayExpt/ER1_direct/'], 'ER1'};
     case 'JS7'
         animalinfo = {'JS7', [rootfolder 'W-track_SingleDay/Efizz/JS7_direct/'],'JS7'};
     case 'SJ6'

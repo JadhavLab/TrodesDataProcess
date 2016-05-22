@@ -1,5 +1,8 @@
 clear; close all;
-exit_status=1;
+exit_status=true;
+throw_errors=true;
+
+commonfilter='(.*)(?<animal>[A-Z]{2,12}[0-9]{0,2})_?';
 	
 if ~exist('animaldef.m','file')
 	warning('animaldef.m not found! asking user where to put files');
@@ -11,33 +14,36 @@ if ~exist('createAllMatclustFiles.m','file')
 	error('TrodesToMatlab not in path!!! ... exiting');
 end
 
-%% Process all .SPIKES folders in directory to generate matlab files
-
-spikefiles = subdir('*.spikes');
-curr_dir = pwd;
-
-fprintf('Found %d potential spike folders! ...\n',...
-    numel(spikefiles));
-for d = 1:numel(spikefiles)
-    if spikefiles(d).isdir
-        
-        try
-        
-        fprintf('About to process %s matclust files ...\n',...
-            spikefiles(d).name);
-		[where_to_proces, ~] = fileparts(spikefiles(d).name);
-		cd(where_to_proces);
-		
-		% Processes the matclust files into the same .spikes folder
-         createAllMatclustFiles;
-        
-        catch ME
-           processError(ME,'Matclust');
-        end
-
-    end
-end
-cd(curr_dir);
+% %% Process all .SPIKES folders in directory to generate matlab files
+% 
+% spikefiles = subdir('*.spikes');
+% curr_dir = pwd;
+% 
+% fprintf('Found %d potential spike folders! ...\n',...
+%     numel(spikefiles));
+% for d = 1:numel(spikefiles)
+%     if spikefiles(d).isdir
+%         
+%         try
+%         
+%         fprintf('About to process %s matclust files ...\n',...
+%             spikefiles(d).name);
+% 		[where_to_proces, ~] = fileparts(spikefiles(d).name);
+% 		cd(where_to_proces);
+% 		
+% 		% Processes the matclust files into the same .spikes folder
+%          createAllMatclustFiles;
+%         
+%         catch ME
+%            processError(ME,'Matclust');
+%            if throw_errors
+%                rethrow(ME);
+%            end
+%         end
+% 
+%     end
+% end
+% cd(curr_dir);
 	
 %% Process all .LFP into filter framework files
 LFPfiles = subdir('*.LFP');
@@ -57,7 +63,7 @@ for d = 1:numel(LFPfiles)
 
         session = getSession(LFPfiles(d).name);
 
-        animalfilter = '(.*)(?<animal>[A-Z]{2,12}[0-9]{0,2})_(.*).LFP$';
+        animalfilter = [commonfilter '(.*).LFP$'];
         filteredstring = regexp(LFPfiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
         warning off; mkdir([animalinfo{2} 'EEG/']); warning on;
@@ -73,6 +79,9 @@ for d = 1:numel(LFPfiles)
         
         catch ME
             processError(ME,'LFP');
+            if throw_errors
+               rethrow(ME);
+           end
         end
 
     end
@@ -96,7 +105,7 @@ for d = 1:numel(DIOfiles)
 
         session = getSession(DIOfiles(d).name);
 
-        animalfilter = '(.*)(?<animal>[A-Z]{2,12}[0-9]{0,2})_(.*).DIO$';
+        animalfilter = [commonfilter '(.*).DIO$'];
         filteredstring = regexp(DIOfiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
 
@@ -111,6 +120,9 @@ for d = 1:numel(DIOfiles)
         
         catch ME
             processError(ME,'DIO');
+            if throw_errors
+               rethrow(ME);
+           end
         end
 
     end
@@ -120,6 +132,7 @@ cd(curr_dir);
 
 
 %% Process all .trodeComments into filter framework files
+% TODO make only process once per session!
 
 commentFiles = subdir('*.trodesComments');
 fprintf('Found %d potential comment files! ...\n',...
@@ -137,7 +150,7 @@ for d = 1:numel(commentFiles)
 
         session = getSession(commentFiles(d).name);
 
-        animalfilter = '(.*)(?<animal>[A-Z]{2,12}[0-9]{0,2})_(.*).trodesComments$';
+        animalfilter = [commonfilter '(.*).trodesComments$'];
         filteredstring = regexp(commentFiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
         
@@ -159,6 +172,9 @@ for d = 1:numel(commentFiles)
         
         catch ME
            processError(ME,'TaskTrial');
+           if throw_errors
+               rethrow(ME);
+           end
         end
 
     end
@@ -169,6 +185,8 @@ end
 cd(curr_dir);
 
 %% Process all .videoPositionTracking into filter framework files
+% TODO make only process once per session!
+
 videoTrackingFiles = subdir('*.videoPositionTracking');
 fprintf('Found %d potential video tracking files! ...\n',...
     numel(videoTrackingFiles));
@@ -185,7 +203,7 @@ for d = 1:numel(videoTrackingFiles)
 
         session = getSession(videoTrackingFiles(d).name);
 
-        animalfilter = '(.*)(?<animal>[A-Z]{2,12}[0-9]{0,2})_(.*).videoPositionTracking$';
+        animalfilter = [commonfilter '(.*).videoPositionTracking$'];
         filteredstring = regexp(videoTrackingFiles(d).name,animalfilter,'names');
         animalinfo = animaldef(filteredstring.animal);
 
@@ -200,6 +218,9 @@ for d = 1:numel(videoTrackingFiles)
         
         catch ME
             processError(ME,'PositionTracking');
+            if throw_errors
+               rethrow(ME);
+           end
         end
        
     end
