@@ -65,6 +65,8 @@ ${scriptpath}/SingleProcess.sh $1 exportspikes $2 >> ${debugtext} 2>/dev/null &
 clear
 echo initiating times ... ; sleep 0.5
 ${scriptpath}/SingleProcess.sh $1 exporttime $2 >> ${debugtext} 2>/dev/null &
+echo initiating analog ... ; sleep 0.5
+${scriptpath}/SingleProcess.sh $1 exportanalog $2 >> ${debugtext} 2>/dev/null &
 #${scriptpath}/SingleProcess.sh $1 exportphy
 
 clear
