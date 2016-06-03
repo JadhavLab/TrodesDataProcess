@@ -47,8 +47,8 @@ echo in parallel on all recfiles in folder structure $1 with file filter $2 ...
 echo
 read -p "Press enter to continue..."
 
-directoryrunningfrom=$(pwd | grep -o '[a-zA-Z0-9_\-]*$')
-debugtext=${scriptpath}Logs/${directoryrunningfrom}.allprocess.log
+processID=$2_$($1 | grep -o '[a-zA-Z0-9_\-]*$')
+debugtext=${scriptpath}Logs/${processID}.allprocess.log
 rm $debugtext
 echo “” > $debugtext
 
@@ -122,7 +122,7 @@ then
 	cd $1
 	MATLAB_COMMAND="path(genpath('${scriptpath}'),path);cd('$1');pwd;MatclustAndFilter;if(exit_status==0);exit;end;"
 	echo About to run $MATLAB_COMMAND in matlab
-	matlab -nodisplay -nosplash -logfile ${scriptpath}Logs/${directoryrunningfrom}.matlab.log -r $MATLAB_COMMAND
+	matlab -nodisplay -nosplash -logfile ${scriptpath}Logs/${processID}.matlab.log -r $MATLAB_COMMAND
 	cd $currpath
 fi
 
