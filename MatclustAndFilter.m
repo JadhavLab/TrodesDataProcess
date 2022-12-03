@@ -14,36 +14,36 @@ if ~exist('createAllMatclustFiles.m','file')
 	error('TrodesToMatlab not in path!!! ... exiting');
 end
 
-% %% Process all .SPIKES folders in directory to generate matlab files
-% 
-% spikefiles = subdir('*.spikes');
-% curr_dir = pwd;
-% 
-% fprintf('Found %d potential spike folders! ...\n',...
-%     numel(spikefiles));
-% for d = 1:numel(spikefiles)
-%     if spikefiles(d).isdir
-%         
-%         try
-%         
-%         fprintf('About to process %s matclust files ...\n',...
-%             spikefiles(d).name);
-% 		[where_to_proces, ~] = fileparts(spikefiles(d).name);
-% 		cd(where_to_proces);
-% 		
-% 		% Processes the matclust files into the same .spikes folder
-%          createAllMatclustFiles;
-%         
-%         catch ME
-%            processError(ME,'Matclust');
-%            if throw_errors
-%                rethrow(ME);
-%            end
-%         end
-% 
-%     end
-% end
-% cd(curr_dir);
+%% Process all .SPIKES folders in directory to generate matlab files
+
+spikefiles = subdir('*.spikes');
+curr_dir = pwd;
+
+fprintf('Found %d potential spike folders! ...\n',...
+    numel(spikefiles));
+for d = 1:numel(spikefiles)
+    if spikefiles(d).isdir
+        
+        try
+        
+        fprintf('About to process %s matclust files ...\n',...
+            spikefiles(d).name);
+		[where_to_proces, ~] = fileparts(spikefiles(d).name);
+		cd(where_to_proces);
+		
+		% Processes the matclust files into the same .spikes folder
+         createAllMatclustFiles;
+        
+        catch ME
+           processError(ME,'Matclust');
+           if throw_errors
+               rethrow(ME);
+           end
+        end
+
+    end
+end
+cd(curr_dir);
 	
 %% Process all .LFP into filter framework files
 LFPfiles = subdir('*.LFP');
